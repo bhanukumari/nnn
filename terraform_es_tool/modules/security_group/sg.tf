@@ -25,5 +25,5 @@ resource "aws_security_group" "sg" {
 }
 
 locals {
- inbound_ports = [22, 9200]
+ inbound_ports = [22, 9200, 5601, 5000]
 }

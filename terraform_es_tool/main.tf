@@ -48,20 +48,6 @@ module "nat" {
   subnet_id = module.subnet.pub_subnet_id
   nat_tag   = var.nat_tag
 }
-
-module "nacl" {
-  source          = "./modules/nacl"
-  vpc_id          = module.vpc.vpc_id
-  protocol        = var.protocol
-  rule_no         = var.rule_no
-  action          = var.action
-  nacl_cidr_block = var.nacl_cidr_block
-  from_port       = var.from_port
-  to_port         = var.to_port
-  nacl_tag        = var.nacl_tag
-  subnet_id       = module.subnet.pri_subnet_id[*]
-}
-
 module "route_table" {
   source                  = "./modules/route_table"
   vpc_id                  = module.vpc.vpc_id
